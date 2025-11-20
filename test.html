@@ -1,0 +1,104 @@
+/* =========================================
+   GLOBAL & COMMON STYLES (通用樣式)
+   ========================================= */
+
+/* 自定義滾動條 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f5f5f7;
+}
+::-webkit-scrollbar-thumb {
+    background: #d1d1d6;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #86868b;
+}
+
+/* 隱藏特定區域滾動條 */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* 玻璃擬態 - 頂部導航 */
+.glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 玻璃擬態 - 右側懸浮側邊欄 */
+.glass-sidebar {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* 文字漸層 */
+.text-gradient {
+    background: linear-gradient(135deg, #1d1d1f 0%, #434344 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 滾動顯現動畫 */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* AI 聊天視窗樣式 */
+.chat-container {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: bottom right;
+}
+.chat-container.hidden-chat {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    pointer-events: none;
+}
+.typing-dot {
+    animation: typing 1.4s infinite ease-in-out both;
+}
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+/* Markdown 樣式 */
+.prose p { margin-bottom: 0.5em; }
+.prose ul { list-style-type: disc; padding-left: 1.2em; margin-bottom: 0.5em; }
+.prose strong { font-weight: 600; color: #1d1d1f; }
+
+/* 首頁無限捲動遮罩 */
+.marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* 作品卡片特效 */
+.project-card:hover .project-image {
+    transform: scale(1.03);
+}
+
+/* 手風琴摺疊動畫 */
+.accordion-content {
+    transition: max-height 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
